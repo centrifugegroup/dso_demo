@@ -28,7 +28,7 @@ class Command(createsuperuser.Command):
             exists = self.UserModel._default_manager.db_manager(database).filter(username=username).exists()
             if exists:
                 self.stdout.write("User exists, exiting normally due to --preserve")
-                sys.exit(1)
+                return
 
         super(Command, self).handle(*args, **options)
 
