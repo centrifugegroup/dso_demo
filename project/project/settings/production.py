@@ -43,5 +43,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, os.pardir, os.pardir, 'static')
-MEDIA_ROOT = os.path.join(BASE_DIR, os.pardir, os.pardir, 'media')
+# STATIC_ROOT = os.path.join(BASE_DIR, os.pardir, os.pardir, 'static')
+# MEDIA_ROOT = os.path.join(BASE_DIR, os.pardir, os.pardir, 'media')
