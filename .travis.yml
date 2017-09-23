@@ -10,4 +10,4 @@ env:
 before_script:
   - npm install -g bower
   - bower install
-script: true
+script: $TASK 
