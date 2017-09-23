@@ -7,4 +7,7 @@ install:
 env:
   - TASK="script/sourceclear"
   - TASK="bandit/scripts/bandit.sh"
+before_script:
+  - npm install -g bower
+  - bower install
 script: $TASK
