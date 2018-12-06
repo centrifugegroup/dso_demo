@@ -2,7 +2,7 @@
 
 set -e
 
-#Download source clear script and scan the current directory for security issues in Open Source Components.
+# Download source clear script and scan the current directory for security issues in Open Source Components.
 
 
 if [[ -z "$SRCCLR_API_TOKEN" ]]
