@@ -1,0 +1,43 @@
+{% extends "boh/management/base_management.html" %}
+
+{% load i18n %}
+{% load widget_tweaks %}
+
+{% block title %}{% trans 'Manage Settings' %} | {% trans 'Services' %} | {% trans 'Import' %} {{ threadfix.name }}{% endblock %}
+
+{% block manage_content %}
+<form method="post" action="{% url 'boh:management.services.threadfix.import' threadfix.id %}">
+  {% csrf_token %}
+  {{ import_formset.management_form }}
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">{% trans 'Import from' %} {{ threadfix.name }}</h3>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>{% trans 'Team' %}</th>
+            <th>{% trans 'Application Name' %}</th>
+            <th>{% trans 'Target Organization' %}</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for form in import_formset.forms %}
+          {{ form.id }}
+          {{ form.team_id }}
+          {{ form.application_id }}
+          {{ form.team_name }}
+          <tr>
+            <td><p class="form-control-static">{{ form.team_name.value }}</p></td>
+            <td>{{ form.application_name | add_class:"form-control" }}</td>
+            <td>{{ form.organization | add_class:"form-control" }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="panel-footer"><button class="btn btn-primary" type="submit">{% trans 'Import Applications' %}</button></div>
+  </div>
+</form>
+{% endblock manage_content %}
